@@ -1,18 +1,18 @@
 import { DECREMENT, INCREMENT, SET } from './actions';
 
-export const initialState = { count: 0 };
+export const initialState = { count: 400 };
 
-export const reducer = (state, action) => {
+export const reducer = (state = initialState, action) => {
   if (action.type === INCREMENT) {
-    return { count: state.count + 1 };
+    return { count: parseInt(++state.count) };
   }
 
   if (action.type === DECREMENT) {
-    return { count: state.count - 1 };
+    return { count: --state.count };
   }
 
   if (action.type === SET) {
-    return { count: action.payload };
+    return { count: parseInt(action.payload) };
   }
 
   return state;
